@@ -1,0 +1,35 @@
+{
+  "name": "personal-cypress-api",
+  "version": "4.0.0",
+  "description": "Project to gather studies in Cypress focused on api test automations",
+  "main": "undefined",
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:prod": "cypress open",
+    "cy:open:prod": "cypress open --env configFile=prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoKartabil/cypress-api.git"
+  },
+  "keywords": [
+    "cypress",
+    "api",
+    "automation"
+  ],
+  "author": "Leonardo Pelegrini Kartabil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeoKartabil/cypress-api/issues"
+  },
+  "homepage": "https://github.com/LeoKartabil/cypress-api#readme",
+  "dependencies": {
+    "cypress": "^12.5.1",
+    "cypress-mochawesome-reporter": "^3.3.0",
+    "faker": "^5.5.3",
+    "rimraf": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/cypress": "^1.1.3"
+  }
+}

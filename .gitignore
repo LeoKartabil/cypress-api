@@ -1,0 +1,7 @@
+node_modules
+*.rar
+reports/html/*
+reports/json/*
+reports/screenshots/*
+cypress/downloads/*
+package-lock.json
