@@ -1,28 +1,8 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import Ajv from 'ajv'
+import { faker } from '@faker-js/faker';
+
+const ajv = new Ajv({allErrors: true, verbose: true, strict: false})
 
 /**
  * EN: The command cy.schemaValidation() should be used for contract validation.
@@ -41,9 +21,6 @@
  * Autor: Leonardo Kartabil - Compass.uol
 */
 
-import Ajv, { stringify } from 'ajv'
-const ajv = new Ajv({allErrors: true, verbose: true, strict: false})
-
 Cypress.Commands.add('schemaValidation', (res, schema, status) => {
     cy.fixture(`schemas/${schema}/${status}.json`).then( schemaFixture => {
         const validate = ajv.compile(schemaFixture)
@@ -56,11 +33,11 @@ Cypress.Commands.add('schemaValidation', (res, schema, status) => {
             }
             throw new Error('Error validating schema, please verify!' + errors)
         }
-        cy.log(`>> Schema successfully validated via file schema/${schema}/${status}.json`)
+        cy.log(`**>> Schema successfully validated via file _schema/${schema}/${status}.json_**`)
     })
 })
 
-Cypress.Commands.add('randomData', () => {
+Cypress.Commands.add('randomUser', () => {
     const randomInt = Math.floor(Math.random() * 1000);
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     const randomLetter = caracteres.charAt(Math.random() * (25 - 0) + 0)
@@ -70,4 +47,13 @@ Cypress.Commands.add('randomData', () => {
         email: `rick${randomLetter}-${randomInt}@intergalacticmail.com`,
         password: `${randomInt}_shut_up_M0rty`,
     }
+})
+
+Cypress.Commands.add('randomProduct', () => {
+    cy.wrap({
+        "nome": faker.commerce.product(),
+        "preco": parseInt(faker.commerce.price()),
+        "descricao": faker.commerce.productDescription(),
+        "quantidade": faker.random.numeric(2) 
+    }).as('newProduct')
 })

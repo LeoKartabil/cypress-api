@@ -28,10 +28,10 @@
     "cypress": "^12.5.1",
     "cypress-mochawesome-reporter": "^3.3.0",
     "cypress-plugin-api": "^2.10.3",
-    "faker": "^5.5.3",
     "rimraf": "^4.1.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/cypress": "^1.1.3"
   }
 }

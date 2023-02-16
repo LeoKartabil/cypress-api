@@ -18,6 +18,8 @@ import 'cypress-plugin-api'
 
 import './commands'
 import './serverest/users.commands'
+import './serverest/products.commands'
+import './serverest/login.commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
