@@ -1,14 +1,9 @@
 Cypress.Commands.add('validAdminLogin', () => {
     cy.getAllUsers()
     cy.get('@response').then( res => {
-        res.body.usuarios.every(user => {
-            if (user.administrador === "true") {
-                cy.wrap({ email: user.email, password: user.password}).as('adminUserTologin')
-                return false
-            } else {
-                throw new Error('No admin user ever founded in database.')
-            }
-        });
+        const adminUser = res.body.usuarios.find((user) => user.administrador === 'true')
+        expect(adminUser).not.to.be.undefined
+        cy.wrap({ email: adminUser.email, password: adminUser.password }).as('adminUserTologin')
     })
 
     cy.get('@adminUserTologin').then(user => {
