@@ -1,0 +1,22 @@
+name: Cypress
+
+on:
+  push:
+    branches:
+      - main # mudar para o nome da sua branch principal
+  pull_request:
+    branches:
+      - main # mudar para o nome da sua branch principal
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run cy:run:prod
