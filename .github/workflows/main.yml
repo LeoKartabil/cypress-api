@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: Install project
+        run: npm i
+
       - name: Install dependencies
-        run: npm i 
         run: npm ci
 
       - name: Start X virtual framebuffer (for running chrome)
