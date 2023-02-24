@@ -6,7 +6,9 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:prod": "cypress open",
-    "cy:open:prod": "cypress open --env configFile=prod --e2e --browser=chrome"
+    "cy:open:prod": "cypress open --env configFile=prod --e2e --browser=chrome",
+    "cy:run:prod": "cypress run --env configFile=prod --e2e --browser=chrome",
+    "cy:clear": "node ./cypress/support/clear.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "cypress": "^12.5.1",
     "cypress-mochawesome-reporter": "^3.3.0",
     "cypress-plugin-api": "^2.10.3",
+    "mochawesome-report-generator": "^6.2.0",
     "rimraf": "^4.1.2"
   },
   "devDependencies": {

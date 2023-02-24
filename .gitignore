@@ -1,7 +1,6 @@
 node_modules
 *.rar
-reports/html/*
-reports/json/*
-reports/screenshots/*
+reports
 cypress/downloads/*
 package-lock.json
+cypress/e2e/examples/*
