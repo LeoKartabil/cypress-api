@@ -34,21 +34,21 @@ After run this last command you can check the **report** folder which was create
 
 ## Structure
 
-```json
+```
   cypress/
-     config //Files for differents environments and its base urls, variables and configs.
+     config =>Files for differents environments and its base urls, variables and configs.
   fixtures/
-     schemas //Schemas for contract validation grouped by their http verbs and feature.
+     schemas =>Schemas for contract validation grouped by their http verbs and feature.
   e2e/
-     serverest //Specs for the 'serverest.dev' testing.
+     serverest => Specs for the 'serverest.dev' testing.
   support/
-     clear.js //File used to clean all the report folder before run the tests.
-     commands.js //File used to gather global commands.
+     clear.js => File used to clean all the report folder before run the tests.
+     commands.js => File used to gather global commands.
      serverest
-          *.commands.js //Files used to gather commands for a specific spec or feature.
+          *.commands.js => Files used to gather commands for a specific spec or feature.
   reports/
-     screenshots //Folder where be placed failed and sucessed evidences
-     index.html //Generate after the firts 'run' - A html report with screenshots embeededs. 
+     screenshots => Folder where be placed failed and sucessed evidences
+     index.html => Generate after the firts 'run' - A html report with screenshots embeededs. 
 ```
 
 ## Contributing
